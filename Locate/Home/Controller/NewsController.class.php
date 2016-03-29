@@ -43,8 +43,8 @@ class NewsController extends Controller{
     public function archive(){
       //无需提交表单给Model类 进行检验
         $News = M('News');
-        $year   =   $_POST['year'];
-        $month  =   $_POST['month'];
+        $year   =   $_GET['year'];
+        $month  =   $_GET['month'];
         $begin_time = strtotime($year . $month . "01");
         $end_time = strtotime("+1 month", $begin_time);
         $map['create_time'] =  array(array('gt',$begin_time),array('lt',$end_time));
